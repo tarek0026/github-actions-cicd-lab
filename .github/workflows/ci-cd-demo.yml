@@ -1,0 +1,22 @@
+name: CI/CD Demo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Job 1
+        run: echo "Job 1 completed successfully"
+
+  job2:
+    name: Job 2
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Job 2
+        run: echo "Job 2 completed successfully"
