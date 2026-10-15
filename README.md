@@ -14,6 +14,21 @@ The lab uses `main` for the stable version, `develop` for integration, and
 `feature/lab-content` for a focused change. Feature work is merged into
 `develop`, then `develop` is merged into `main`.
 
+Start a feature from the integration branch and merge it back when it is ready:
+
+```sh
+git switch develop
+git switch -c feature/lab-content
+# Make and commit the feature change
+git switch develop
+git merge --no-ff feature/lab-content
+git switch main
+git merge --no-ff develop
+```
+
+The page includes a project-status section to show that feature work has been
+integrated into `develop`.
+
 ## CI/CD workflow
 
 The GitHub Actions workflow at `.github/workflows/ci-cd-demo.yml` runs when
